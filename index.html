@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeStore</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="nuevo_producto">
@@ -13,6 +14,16 @@
             <textarea name="descripcion" id="descripcion" placeholder="descripcion del producto" maxlength="500" rows="2" required></textarea>
             <input type="url" id="url_imagen" placeholder="URL de la imagen" required>
             <button type="submit" class="subir">Subir</button>
+            <select name="categoria" id="categorias required">
+                <option value="" disabled selected>seleccionar una categoria</option>
+                <option value="Cartas">cartas</option>
+                <option value="Unboxing">Unboxing</option>
+                <option value="Tapetes">Tapetes</option>
+                <option value="Poster">Poster</option>
+                <option value="Peluches">Peluches</option>
+                <option value="Funkos">Funkos</option>
+                <option value="Camisas">Camisas</option>
+            </select>
         </form>
     </header>
     <nav class="navbar">
@@ -23,6 +34,7 @@
             <li><a href="#">Poster</a></li>
             <Li><a href="#">Peluches</a></Li>
             <li><a href="#">Funkos</a></li>
+            <li><a href="#">Camisas</a></li>
         </ul>
     </nav>
     <div class="contenedor">
