@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeStore</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header class="nuevo_producto">
         <h2>agregar producto</h2>
-        <form id="FProducto">
-            <input type="text" id="titulo" placeholder="nombre del producto">
-            <textarea name="descripcion" id="descripcion" placeholder="descripcion del producto" maxlength="500" rows="2" required></textarea>
-            <input type="url" id="url_imagen" placeholder="URL de la imagen" required>
-            <button type="submit" class="subir">Subir</button>
-            <select name="categoria" id="categorias required">
-                <option value="" disabled selected>seleccionar una categoria</option>
-                <option value="Cartas">cartas</option>
-                <option value="Unboxing">Unboxing</option>
-                <option value="Tapetes">Tapetes</option>
-                <option value="Poster">Poster</option>
-                <option value="Peluches">Peluches</option>
-                <option value="Funkos">Funkos</option>
-                <option value="Camisas">Camisas</option>
-            </select>
-        </form>
+        <button id="AbrirM">Agregar</button>
+        <dialog id="agregarM">
+            <form id="FProducto">
+                <input type="text" id="titulo" placeholder="nombre del producto">
+                <textarea name="descripcion" id="descripcion" placeholder="descripcion del producto" maxlength="500"
+                    rows="2" required></textarea>
+                <input type="url" id="url_imagen" placeholder="URL de la imagen" required>
+                <select name="categoria" id="categorias required">
+                    <option value="" disabled selected>seleccionar una categoria</option>
+                    <option value="Cartas">cartas</option>
+                    <option value="Unboxing">Unboxing</option>
+                    <option value="Tapetes">Tapetes</option>
+                    <option value="Poster">Poster</option>
+                    <option value="Peluches">Peluches</option>
+                    <option value="Funkos">Funkos</option>
+                    <option value="Camisas">Camisas</option>
+                </select>
+                <button type="submit" class="subir">Subir</button>
+            </form>
+        </dialog>
     </header>
     <nav class="navbar">
         <ul>
@@ -48,8 +54,10 @@
             <H3></H3>
         </aside>
     </div>
-    <footer>
-
-    </footer>
+    <script src="funciones.js"></script>
 </body>
+<footer>
+
+</footer>
+
 </html>
