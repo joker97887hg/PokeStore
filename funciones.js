@@ -15,7 +15,9 @@ modalA.addEventListener('click', (evento) => {
     }
 })
 
-const productos = [];
+let productos = JSON.parse(localStorage.getItem('misProductos')) || [];
+
+renderizarTarjetas();
 
 document.getElementById('FProducto').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -35,6 +37,8 @@ document.getElementById('FProducto').addEventListener('submit', function (event)
     };
 
     productos.push(nuevoProducto);
+    localStorage.setItem('misProductos', JSON.stringify(productos));
+
 
     console.log("Producto agregado con éxito:", nuevoProducto);
     console.log("Lista completa de productos:", productos);
@@ -45,6 +49,7 @@ document.getElementById('FProducto').addEventListener('submit', function (event)
 })
 function renderizarTarjetas() {
     const contenedor = document.getElementById('CoProducto');
+    if (!contenedor) return;
     contenedor.innerHTML = '';
     productos.forEach(producto => {
         const tarjetaHTML = `
@@ -59,3 +64,5 @@ function renderizarTarjetas() {
         contenedor.innerHTML += tarjetaHTML;
     });
 }
+
+
