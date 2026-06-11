@@ -16,7 +16,8 @@
         <dialog id="agregarM">
             <form id="FProducto">
                 <input type="text" id="titulo" placeholder="nombre del producto" required>
-                <textarea name="descripcion" id="descripcion" placeholder="descripcion del producto" maxlength="500" rows="2" required></textarea>
+                <textarea name="descripcion" id="descripcion" placeholder="descripcion del producto" maxlength="500"
+                    rows="2" required></textarea>
                 <input type="url" id="url_imagen" placeholder="URL de la imagen" required>
                 <select name="categoria" id="categorias" required>
                     <option value="" disabled selected>seleccionar una categoria</option>
@@ -34,13 +35,14 @@
     </header>
     <nav class="navbar">
         <ul>
-            <li><a href="#">Cartas</a></li>
-            <li><a href="#">Unboxing</a></li>
-            <li><a href="#">Tapetes</a></li>
-            <li><a href="#">Poster</a></li>
-            <Li><a href="#">Peluches</a></Li>
-            <li><a href="#">Funkos</a></li>
-            <li><a href="#">Camisas</a></li>
+            <li><a href="#" data-categoria="todos">Todos</a></li>
+            <li><a href="#" data-categoria="Cartas">Cartas</a></li>
+            <li><a href="#" data-categoria="Unboxing">Unboxing</a></li>
+            <li><a href="#" data-categoria="Tapetes">Tapetes</a></li>
+            <li><a href="#" data-categoria="Poster">Poster</a></li>
+            <li><a href="#" data-categoria="Peluches">Peluches</a></li>
+            <li><a href="#" data-categoria="Funkos">Funkos</a></li>
+            <li><a href="#" data-categoria="Camisas">Camisas</a></li>
         </ul>
     </nav>
     <div class="contenedor">
