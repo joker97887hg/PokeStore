@@ -84,6 +84,12 @@ const cerrarLogin = document.getElementById("cerrarLogin");
 const formularioLogin = document.getElementById("login");
 const cerrarSesion = document.getElementById("cerrarSesion");
 
+cerrarSesion.addEventListener("click",()=>{
+    localStorage.removeItem("usuarioActivo");
+    alert("Sesión cerrada");
+    window.location.reload();
+});
+
 if(abrirLogin){
     abrirLogin.addEventListener("click",()=>{
         modalLogin.showModal();
