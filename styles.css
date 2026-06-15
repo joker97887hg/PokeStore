@@ -110,67 +110,67 @@ article {
 }
 
 #agregarM {
-  border: none;
-  border-radius: 12px;
-  padding: 0; 
-  width: 90%;
-  max-width: 450px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
 }
 
 #agregarM::backdrop {
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px); 
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
 }
 
 #FProducto {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; 
-  padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
 }
 
 #FProducto input,
 #FProducto textarea,
 #FProducto select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  box-sizing: border-box; 
-  font-family: inherit;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
 }
 
 #FProducto textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 #FProducto input:focus,
 #FProducto textarea:focus,
 #FProducto select:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
 
 #subir {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  margin-top: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 5px;
 }
 
 #subir:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 #CoProducto {
@@ -179,16 +179,16 @@ article {
     gap: 20px;
     padding: 20px;
 }
+
 .tarjeta-producto {
-    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    border: 1px solid #ddd;
     border-radius: 20px;
     padding: 15px;
-    background-color: rgba(0, 123, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
 
 .tarjeta-producto img {
     width: 100%;
@@ -198,9 +198,8 @@ article {
 }
 
 .tarjeta-producto h3 {
-    margin: 10px 0 5px 0;
-    font-size: 1.2rem;
-    color: #333;
+    color: #000;
+    margin: 10px 0;
 }
 
 .tarjeta-categoria {
@@ -215,9 +214,7 @@ article {
 }
 
 .tarjeta-producto p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 5px;
+    color: #333;
 }
 
 #abrirLogin,
@@ -251,7 +248,7 @@ article {
 }
 
 #modalLogin::backdrop {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 #login {
@@ -285,11 +282,200 @@ article {
     border: none;
     cursor: pointer;
     background: #5b00ff;
-    color:white;
+    color: white;
     font-weight: bold;
 }
 
 #login button:hover {
-    background:#00d9ff;
-    color:black;
+    background: #00d9ff;
+    color: black;
+}
+
+#abrirCarrito {
+    background: #171b2d;
+    color: white;
+    border: 2px solid #00d9ff;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+#modalCarrito,
+#modalFactura {
+    background: #171b2d;
+    color: white;
+    border: 2px solid #00d9ff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 20px #00d9ff;
+}
+
+.producto-carrito {
+    border-bottom: 1px solid white;
+    padding: 10px;
+}
+
+#correoCliente {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#panelAdmin {
+    margin: 20px;
+    padding: 20px;
+    background: #171b2d;
+    color: white;
+    border-radius: 20px;
+    border: 2px solid #00d9ff;
+    box-shadow: 0 0 20px #00d9ff;
+}
+
+.factura-admin {
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #00d9ff;
+    border-radius: 15px;
+}
+
+.factura-admin button {
+    background: #ff004c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.factura-admin button:hover {
+    background: red;
+}
+
+#verFacturas {
+    background: #171b2d;
+    color: white;
+    border: 2px solid #00d9ff;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#verFacturas:hover {
+    background: #00d9ff;
+    color: black;
+}
+
+#factura {
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 20px;
+    width: 320px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+#factura h2,
+#factura h3,
+#factura h4,
+#factura p,
+#factura div {
+    color: black;
+    text-shadow: none;
+}
+
+@media print {
+
+    body {
+        background: white !important;
+    }
+
+    #factura {
+        display: block !important;
+        background: white !important;
+        color: black !important;
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid black;
+        box-shadow: none !important;
+    }
+
+    #factura * {
+        color: black !important;
+        text-shadow: none !important;
+    }
+
+    #cerrarFactura,
+    #modalFactura button:not(:first-child) {
+        display: none !important;
+    }
+}
+
+.precio {
+    color: #00ff7b;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
+
+#modalEditar {
+    width: 400px;
+    border: none;
+    border-radius: 20px;
+    background: #171b2d;
+    color: white;
+    box-shadow: 0 0 20px #00d9ff;
+    padding: 25px;
+}
+
+#modalEditar::backdrop {
+    background: rgba(0, 0, 0, .7);
+}
+
+#formEditar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#formEditar h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#formEditar input,
+#formEditar textarea,
+#formEditar select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #00d9ff;
+    background: #252a44;
+    color: white;
+}
+
+#formEditar textarea {
+    resize: none;
+    height: 80px;
+}
+
+.botones-editar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.botones-editar button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#guardarEdicion {
+    background: #00d9ff;
+    color: black;
 }

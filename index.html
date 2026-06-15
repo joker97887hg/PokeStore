@@ -15,16 +15,23 @@
         <button id="abrirLogin">Iniciar Sesión</button>
         <button id="cerrarSesion" style="display:none;">Cerrar Sesión</button>
         <button id="AbrirM">Agregar</button>
+        <button id="verFacturas" style="display:none;">
+            📄 Facturas
+        </button>
+        <button id="abrirCarrito">
+            🛒 <span id="contadorCarrito"></span>
+        </button>
+
         <dialog id="modalLogin">
-          <form id="login">
-            <h2>Inicio de Sesión</h2>
-            <input type="text" id="usuario" placeholder="Usuario" required>
-            <input type="password" id="contraseña" placeholder="Contraseña" required>
-            <button type="submit">Entrar
-            </button>
-            <button type="button" id="cerrarLogin">
-            Cancelar
-            </button>
+            <form id="login">
+                <h2>Inicio de Sesión</h2>
+                <input type="text" id="usuario" placeholder="Usuario" required>
+                <input type="password" id="contraseña" placeholder="Contraseña" required>
+                <button type="submit">Entrar
+                </button>
+                <button type="button" id="cerrarLogin">
+                    Cancelar
+                </button>
             </form>
         </dialog>
 
@@ -33,6 +40,7 @@
                 <input type="text" id="titulo" placeholder="nombre del producto" required>
                 <textarea name="descripcion" id="descripcion" placeholder="descripcion del producto" maxlength="500"
                     rows="2" required></textarea>
+                <input type="number" id="precio" placeholder="Precio del producto" min="1" required>
                 <input type="url" id="url_imagen" placeholder="URL de la imagen" required>
                 <select name="categoria" id="categorias" required>
                     <option value="" disabled selected>seleccionar una categoria</option>
@@ -65,11 +73,109 @@
             <div id="CoProducto">
 
             </div>
-        </article>
-        <aside>
-            <H3></H3>
-        </aside>
+
     </div>
+
+    <dialog id="modalCarrito">
+        <div id="productosCarrito"></div>
+
+        <button id="eliminarSeleccionadosCarrito">
+            Eliminar seleccionados
+        </button>
+        <h2>
+            Carrito de compra
+        </h2>
+
+        <div id="productosCarrito">
+        </div>
+
+        <h3>
+            Total: $
+            <span id="totalCarrito">
+                0
+            </span>
+        </h3>
+        <input type="text" id="Cliente" placeholder="Nombre del cliente">
+        <button id="realizarVenta">
+            Realizar Venta
+        </button>
+
+        <button id="cerrarCarrito">
+            Cerrar
+        </button>
+    </dialog>
+
+    <dialog id="modalFactura">
+        <div id="factura">
+            <h2>
+                PokeStore
+            </h2>
+
+            <h3>
+                Boucher de compra
+            </h3>
+
+            <div id="contenidoFactura">
+            </div>
+            <button onclick="window.print()">
+                Imprimir
+            </button>
+            <button id="cerrarFactura">
+                Cerrar
+            </button>
+        </div>
+    </dialog>
+    <dialog id="modalFacturas">
+        <h2>
+            Panel de Ventas
+        </h2>
+
+        <div id="listaFacturas">
+        </div>
+
+        <button id="cerrarFacturas">
+            Cerrar
+        </button>
+
+    </dialog>
+    <dialog id="modalEditar">
+        <form id="formEditar">
+
+            <input type="hidden" id="editarId">
+
+            <h2>Editar Producto</h2>
+
+            <input type="text" id="editarTitulo" placeholder="Nombre">
+
+            <textarea id="editarDescripcion" placeholder="Descripción"></textarea>
+
+            <input type="url" id="editarImagen" placeholder="URL Imagen">
+
+            <input type="number" id="editarPrecio" placeholder="Precio">
+
+            <select id="editarCategorias">
+                <option value="Cartas">Cartas</option>
+                <option value="Unboxing">Unboxing</option>
+                <option value="Tapetes">Tapetes</option>
+                <option value="Poster">Poster</option>
+                <option value="Peluches">Peluches</option>
+                <option value="Funkos">Funkos</option>
+                <option value="Camisas">Camisas</option>
+            </select>
+
+            <div class="botones-editar">
+                <button type="button" id="guardarEdicion">
+                    Guardar
+                </button>
+
+                <button type="button" onclick="document.getElementById('modalEditar').close()">
+                    Cancelar
+                </button>
+            </div>
+
+        </form>
+    </dialog>
+
     <script src="funciones.js" defer></script>
 </body>
 <footer>
