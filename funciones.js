@@ -272,21 +272,25 @@ Subtotal: $${subtotal}
 
 </div>`;
     });
-const btnEliminarSeleccionados =
-    document.getElementById(
-        "eliminarSeleccionadosCarrito"
-    );
+    const iva = total * 0.15;
+    const totalConIva = total + iva;
+    const btnEliminarSeleccionados =
+        document.getElementById(
+            "eliminarSeleccionadosCarrito"
+        );
 
-if (carrito.length > 1) {
-    btnEliminarSeleccionados.style.display =
-        "block";
-} else {
-    btnEliminarSeleccionados.style.display =
-        "none";
-}
-    document.getElementById(
-        "totalCarrito"
-    ).innerHTML = total;
+    if (carrito.length > 1) {
+        btnEliminarSeleccionados.style.display =
+            "block";
+    } else {
+        btnEliminarSeleccionados.style.display =
+            "none";
+    }
+    document.getElementById("totalCarrito").innerHTML = `
+    <p>Subtotal: $${total.toFixed(2)}</p>
+    <p>IVA (15%): $${iva.toFixed(2)}</p>
+    <h3>Total a pagar: $${totalConIva.toFixed(2)}</h3>
+`;
 }
 
 function eliminarCarrito(index) {
@@ -332,7 +336,7 @@ document.getElementById(
                         "usuarioActivo"
                     )
                 );
-                
+
             if (!usuario) {
                 alert(
                     "Inicie sesión primero"
@@ -357,24 +361,29 @@ document.getElementById(
                 );
                 return;
             }
+            let subtotal = 0;
+
+            carrito.forEach(producto => {
+                subtotal += producto.precio * producto.cantidad;
+            });
+
+            const iva = subtotal * 0.15;
+            const total = subtotal + iva;
+            console.log({
+                subtotal,
+                iva,
+                total
+            });
             const venta = {
-                id:
-                    Date.now(),
-                vendedor:
-                    usuario.usuario,
-                cliente:
-                    text,
-                fecha:
-                    new Date()
-                        .toLocaleDateString(),
-                productos:
-                    carrito,
-                total:
-                    document.getElementById(
-                        "totalCarrito"
-                    ).innerHTML,
-                estado:
-                    "Activa"
+                id: Date.now(),
+                vendedor: usuario.usuario,
+                cliente: text,
+                fecha: new Date().toLocaleDateString(),
+                productos: carrito,
+                subtotal: subtotal,
+                iva: iva,
+                total: total,
+                estado: "Activa"
             };
             ventas.push(venta);
             localStorage.setItem(
@@ -388,7 +397,7 @@ document.getElementById(
         });
 
 function generarFactura(venta) {
-
+    console.log("Generando factura", venta);
     const modal =
         document.getElementById("modalFactura");
 
@@ -404,6 +413,9 @@ function generarFactura(venta) {
           <td>$${p.precio * p.cantidad}</td>
         </tr>`;
     });
+    const subtotal = venta.subtotal;
+    const iva = venta.iva;
+    const totalFinal = venta.total;
 
     document.getElementById(
         "contenidoFactura"
@@ -427,7 +439,9 @@ function generarFactura(venta) {
             </tbody>
         </table>
         <hr>
-        <h2>Total: $${venta.total}</h2>
+        <p>Subtotal: $${subtotal}</p>
+        <p>IVA (15%): $${iva.toFixed(2)}</p>
+        <h2>Total: $${totalFinal.toFixed(2)}</h2>
     `;
     modal.showModal();
 }
@@ -448,44 +462,20 @@ function cargarPanelAdmin() {
 cargarPanelAdmin();
 
 function verFacturaAdmin(id) {
+
     const ventas =
         JSON.parse(
             localStorage.getItem("ventas")
         ) || [];
+
     const venta =
         ventas.find(v => v.id === id);
 
+    console.log(venta);
+
     if (!venta) return;
 
-    let productos = "";
-
-    venta.productos.forEach(p => {
-
-        productos += `
-        <p>
-            ${p.titulo}
-            - Cantidad: ${p.cantidad}
-        </p>
-        `;
-    });
-
-    document.getElementById(
-        "contenidoFactura"
-    ).innerHTML = `
-        <h3>Factura #${venta.id}</h3>
-        <p>Cliente: ${venta.cliente}</p>
-        <p>Vendedor: ${venta.vendedor}</p>
-        <p>Fecha: ${venta.fecha}</p>
-        <hr>
-        ${productos}
-        <hr>
-        <h3>Total: $${venta.total}</h3>
-        <h4>Estado: ${venta.estado}</h4>
-    `;
-
-    document.getElementById(
-        "modalFactura"
-    ).showModal();
+    generarFactura(venta);
 }
 
 function anularVenta(id) {
@@ -573,9 +563,8 @@ function cargarFacturas() {
             <p><strong>Fecha:</strong>
             ${venta.fecha}</p>
 
-            <p><strong>Total:</strong>
-            $${venta.total}</p>
-
+           <p><strong>Total:</strong>
+$${Number(venta.total).toFixed(2)}</p>
             <p><strong>Estado:</strong>
             ${venta.estado}</p>
 
