@@ -564,25 +564,32 @@ article {
         max-height: 250px;
     }
 
-    #modalLogin,
-    #modalEditar,
-    #modalCarrito,
-    #modalFactura,
-    #modalFacturas,
-    #agregarM {
-        width: 95%;
-        max-width: 500px;
+    #modalLogin {
+        width: 75%;
+        max-width: 260px;
+        padding: 15px;
     }
 
-    .botones-editar {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .botones-editar button {
-        width: 100%;
-    }
 }
+
+#modalEditar,
+#modalCarrito,
+#modalFactura,
+#modalFacturas,
+#agregarM {
+    width: 95%;
+    max-width: 500px;
+}
+
+.botones-editar {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.botones-editar button {
+    width: 100%;
+}
+
 
 #cerrarSesion,
 #verFacturas {
