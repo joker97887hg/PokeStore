@@ -12,7 +12,22 @@
     <header class="nuevo_producto">
         <h2>PokeStore</h2>
         <p>Tu tienda donde encotraras productos sobre pokemon.</p>
+        <button id="abrirLogin">Iniciar Sesión</button>
+        <button id="cerrarSesion" style="display:none;">Cerrar Sesión</button>
         <button id="AbrirM">Agregar</button>
+        <dialog id="modalLogin">
+          <form id="login">
+            <h2>Inicio de Sesión</h2>
+            <input type="text" id="usuario" placeholder="Usuario" required>
+            <input type="password" id="contraseña" placeholder="Contraseña" required>
+            <button type="submit">Entrar
+            </button>
+            <button type="button" id="cerrarLogin">
+            Cancelar
+            </button>
+            </form>
+        </dialog>
+
         <dialog id="agregarM">
             <form id="FProducto">
                 <input type="text" id="titulo" placeholder="nombre del producto" required>

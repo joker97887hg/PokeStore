@@ -64,5 +64,94 @@ function renderizarTarjetas() {
         contenedor.innerHTML += tarjetaHTML;
     });
 }
+const usuarios = [
+    {
+        usuario: "admin",
+        contraseña: "1234",
+        rol: "Administrador"
+    },
 
+    {
+        usuario: "vendedor",
+        contraseña: "1234",
+        rol: "Vendedor"
+    }
+];
+
+const abrirLogin = document.getElementById("abrirLogin");
+const modalLogin = document.getElementById("modalLogin");
+const cerrarLogin = document.getElementById("cerrarLogin");
+const formularioLogin = document.getElementById("login");
+const cerrarSesion = document.getElementById("cerrarSesion");
+
+if(abrirLogin){
+    abrirLogin.addEventListener("click",()=>{
+        modalLogin.showModal();
+    });
+}
+
+if(cerrarLogin){
+    cerrarLogin.addEventListener("click",()=>{
+        modalLogin.close();
+    });
+}
+
+if(formularioLogin){
+    formularioLogin.addEventListener("submit",(evento)=>{
+        evento.preventDefault();
+        const usuario =
+        document.getElementById("usuario").value;
+        const contraseña =
+        document.getElementById("contraseña").value;
+        const usuarioEncontrado =
+        usuarios.find(user =>
+            user.usuario === usuario &&
+            user.contraseña === contraseña
+        );
+
+        if(usuarioEncontrado){
+            localStorage.setItem(
+                "usuarioActivo",
+                JSON.stringify(usuarioEncontrado)
+            );
+            alert(
+                "Bienvenido " +
+                usuarioEncontrado.rol
+            );
+            modalLogin.close();
+            actualizarSesion();
+        }else{
+            alert(
+                "Usuario o contraseña incorrectos"
+            );
+        }
+    });
+}
+
+function actualizarSesion(){
+    const sesion =
+    localStorage.getItem("usuarioActivo");
+    if(sesion){
+        abrirLogin.style.display="none";
+        cerrarSesion.style.display="inline-block";
+    }else{
+        abrirLogin.style.display="inline-block";
+        cerrarSesion.style.display="none";
+    }
+}
+
+if(cerrarSesion){
+
+    cerrarSesion.addEventListener("click",()=>{
+        localStorage.removeItem(
+            "usuarioActivo"
+        );
+
+        alert(
+            "Sesión cerrada"
+        );
+        actualizarSesion();
+    });
+}
+actualizarSesion();
 

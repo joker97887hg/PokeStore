@@ -219,3 +219,77 @@ article {
     color: #666;
     margin-top: 5px;
 }
+
+#abrirLogin,
+#cerrarSesion {
+    background: #171b2d;
+    color: white;
+    border: 2px solid #00d9ff;
+    border-radius: 20px;
+    padding: 8px 18x;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    box-shadow: 0 0 10px #00d9ff;
+    transition: 0.3s;
+}
+
+#abrirLogin:hover,
+#cerrarSesion:hover {
+    background: #5b00ff;
+    transform: scale(1.05);
+}
+
+#modalLogin {
+    width: 320px;
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid #00d9ff;
+    background: #171b2d;
+    color: white;
+    box-shadow: 0 0 25px #00d9ff;
+}
+
+#modalLogin::backdrop {
+    background: rgba(0,0,0,0.7);
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#login h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#login input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #00d9ff;
+    background: #252a44;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+#login input::placeholder {
+    color: #aaa;
+}
+
+#login button {
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background: #5b00ff;
+    color:white;
+    font-weight: bold;
+}
+
+#login button:hover {
+    background:#00d9ff;
+    color:black;
+}
