@@ -47,11 +47,19 @@ document.getElementById('FProducto').addEventListener('submit', function (event)
 
     renderizarTarjetas();
 })
-function renderizarTarjetas() {
-    const contenedor = document.getElementById('CoProducto');
+function renderizarTarjetas(categoria = "todos") {
+    const contenedor =
+        document.getElementById("CoProducto");
     if (!contenedor) return;
-    contenedor.innerHTML = '';
-    productos.forEach(producto => {
+    contenedor.innerHTML = "";
+    let productosFiltrados = productos;
+    if (categoria !== "todos") {
+        productosFiltrados =
+            productos.filter(
+                producto => producto.categoria === categoria
+            );
+    }
+    productosFiltrados.forEach(producto => {
         const tarjetaHTML = `
     <div class="tarjeta-producto">
     <img src="${producto.url_imagen}" alt="${producto.titulo}">
@@ -264,7 +272,18 @@ Subtotal: $${subtotal}
 
 </div>`;
     });
+const btnEliminarSeleccionados =
+    document.getElementById(
+        "eliminarSeleccionadosCarrito"
+    );
 
+if (carrito.length > 1) {
+    btnEliminarSeleccionados.style.display =
+        "block";
+} else {
+    btnEliminarSeleccionados.style.display =
+        "none";
+}
     document.getElementById(
         "totalCarrito"
     ).innerHTML = total;
@@ -313,7 +332,7 @@ document.getElementById(
                         "usuarioActivo"
                     )
                 );
-
+                
             if (!usuario) {
                 alert(
                     "Inicie sesión primero"
@@ -344,7 +363,7 @@ document.getElementById(
                 vendedor:
                     usuario.usuario,
                 cliente:
-                    text ,
+                    text,
                 fecha:
                     new Date()
                         .toLocaleDateString(),
@@ -749,3 +768,16 @@ document.getElementById(
     "click",
     eliminarSeleccionadosCarrito
 );
+
+document.querySelectorAll(
+    ".navbar a"
+).forEach(boton => {
+
+    boton.addEventListener("click", e => {
+        e.preventDefault();
+        const categoria =
+            boton.dataset.categoria;
+        renderizarTarjetas(categoria);
+    });
+
+});

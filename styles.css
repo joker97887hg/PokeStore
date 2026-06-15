@@ -589,3 +589,7 @@ article {
     width: 120px;
     height: 40px;
 }
+
+#eliminarSeleccionadosCarrito {
+    display: none;
+}
