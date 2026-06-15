@@ -69,9 +69,12 @@ function renderizarTarjetas(categoria = "todos") {
         <h3 class="precio">
             $${producto.precio}
         </h3>
-        <button onclick='agregarCarrito(${JSON.stringify(producto)})'>
-            🛒 Agregar
-        </button>
+         ${JSON.parse(localStorage.getItem("usuarioActivo"))?.rol === "Vendedor"
+        ? `<button onclick='agregarCarrito(${JSON.stringify(producto)})'>
+             🛒 Agregar
+           </button>`
+        : ""
+    }
         ${JSON.parse(localStorage.getItem("usuarioActivo"))?.rol === "Administrador"
                 ?
                 `<button onclick="editarProducto(${producto.id})">
