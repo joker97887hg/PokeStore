@@ -12,11 +12,16 @@ header {
 
 #AbrirM {
     position: absolute;
-    border-radius: 30px;
     right: 30px;
-    bottom: 0px;
-    color: rgb(232, 232, 235);
-    background: #1A1D2E;
+    bottom: 0;
+    width: 120px;
+    height: 40px;
+    background: #171b2d;
+    color: white;
+    border: 2px solid #00d9ff;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00d9ff;
 }
 
 .contenedor {
@@ -315,7 +320,7 @@ article {
     padding: 10px;
 }
 
-#correoCliente {
+#Cliente {
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
@@ -478,4 +483,109 @@ article {
 #guardarEdicion {
     background: #00d9ff;
     color: black;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    #CoProducto {
+        grid-template-columns:
+            repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    article {
+        padding-top: 40px;
+    }
+
+    #AbrirM {
+        position: static;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    header button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .navbar {
+        height: auto;
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .contenedor {
+        display: block;
+        padding: 10px;
+    }
+
+    article {
+        padding: 20px;
+    }
+
+    #CoProducto {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .tarjeta-producto img {
+        height: auto;
+        max-height: 250px;
+    }
+
+    #modalLogin,
+    #modalEditar,
+    #modalCarrito,
+    #modalFactura,
+    #modalFacturas,
+    #agregarM {
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .botones-editar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botones-editar button {
+        width: 100%;
+    }
+}
+
+#cerrarSesion,
+#verFacturas {
+    width: 120px;
+    height: 40px;
 }
