@@ -129,29 +129,26 @@ if(formularioLogin){
 }
 
 function actualizarSesion(){
+
     const sesion =
-    localStorage.getItem("usuarioActivo");
+    JSON.parse(localStorage.getItem("usuarioActivo"));
+    const botonAgregar =
+    document.getElementById("AbrirM");
+
     if(sesion){
         abrirLogin.style.display="none";
         cerrarSesion.style.display="inline-block";
+
+        if(sesion.rol === "Administrador"){
+            botonAgregar.style.display="inline-block";
+        }else{
+            botonAgregar.style.display="none";
+        }
     }else{
         abrirLogin.style.display="inline-block";
         cerrarSesion.style.display="none";
+        botonAgregar.style.display="none";    
     }
-}
-
-if(cerrarSesion){
-
-    cerrarSesion.addEventListener("click",()=>{
-        localStorage.removeItem(
-            "usuarioActivo"
-        );
-
-        alert(
-            "Sesión cerrada"
-        );
-        actualizarSesion();
-    });
 }
 actualizarSesion();
 
